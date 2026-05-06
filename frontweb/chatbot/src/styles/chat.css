@@ -1,0 +1,345 @@
+/* chat.css */
+
+:root {
+  --sidebar-bg: #5a69a6;
+  --main-bg: #ffffff;
+  --text-white: #ffffff;
+  --accent-yellow: #ffeb3b;
+  --bot-bubble-bg: #ffffff;
+  --user-bubble-bg: #7c8bc7;
+  --border-color: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.chat-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 300px;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  color: var(--text-white);
+}
+
+.logo-section {
+  text-align: center;
+  padding: 0 20px 30px;
+}
+
+.umb-logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.new-chat-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--accent-yellow);
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.new-chat-btn:hover {
+  transform: scale(1.02);
+  background-color: #fdd835;
+}
+
+.chat-history {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.chat-history h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.history-item {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.history-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.history-time {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.user-profile {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-circle {
+  width: 45px;
+  height: 45px;
+  background-color: var(--accent-yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-weight: bold;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.view-profile {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* --- MAIN CHAT AREA --- */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f7f9;
+}
+
+.chat-header {
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.chat-header h2 {
+  font-size: 18px;
+  color: #333;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d32f2f;
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --- MESSAGES AREA --- */
+.messages-area {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.message-row {
+  display: flex;
+  gap: 15px;
+  max-width: 80%;
+}
+
+.message-row.bot {
+  align-self: flex-start;
+}
+
+.message-row.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.bot-icon {
+  width: 40px;
+  height: 40px;
+  background-image: url('/logo-mercurbuana.png'); /* Or your bot icon */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.message-bubble {
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.bot .message-bubble {
+  background-color: var(--bot-bubble-bg);
+  color: #333;
+  border: 1px solid var(--border-color);
+  border-top-left-radius: 0;
+}
+
+.user .message-bubble {
+  background-color: var(--user-bubble-bg);
+  color: white;
+  border-top-right-radius: 0;
+}
+
+/* --- INPUT AREA --- */
+.chat-input-area {
+  padding: 20px 30px 30px;
+  background: white;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  padding: 10px 0;
+}
+
+.send-btn {
+  background-color: var(--accent-yellow);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.send-btn:hover {
+  background-color: #fdd835;
+}
+
+.send-icon {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+}
+
+/* --Profile Styles -- */
+.profile-section {
+  padding: 40px;
+  max-width: 900px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.profile-avatar-large {
+  width: 120px;
+  height: 120px;
+  background: var(--accent-yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  border: 1px solid #000;
+}
+
+.profile-id {
+  color: #7c8bc7;
+  font-weight: 500;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-card {
+  background: #ebebeb;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.info-card h3 {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  color: #555;
+}
+
+.field p {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.back-btn, .save-btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.back-btn {
+  background: white;
+  border: 1px solid #999;
+}
+
+.save-btn {
+  background: var(--accent-yellow);
+  border: none;
+}

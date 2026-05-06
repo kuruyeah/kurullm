@@ -1,0 +1,176 @@
+/* ОБЩИЙ СТИЛЬ */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+}
+
+.admin {
+  width: 100%;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.logout {
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+/* MAIN LAYOUT */
+.main {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+/* LEFT PANEL */
+.left {
+  width: 30%;
+  padding: 30px;
+  background: #ffffff;
+  border-right: 1px solid #eee;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 30px;
+}
+
+/* CALENDAR BOX */
+.calendar {
+  background: #f9f9ff;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+/* REACT CALENDAR FIX */
+.react-calendar {
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+.react-calendar__navigation button {
+  font-weight: bold;
+  color: #333;
+}
+
+.react-calendar__tile {
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+.react-calendar__tile--active {
+  background: #6c63ff;
+  color: white;
+}
+
+.react-calendar__tile:hover {
+  background: #e0e0ff;
+}
+
+/* RIGHT PANEL */
+.right {
+  width: 70%;
+  padding: 40px;
+}
+
+/* PROFILE */
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #6c63ff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.id {
+  color: gray;
+  font-size: 14px;
+}
+
+/* CATEGORY INPUT */
+.category {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.category input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.category button {
+  margin-left: 10px;
+  padding: 12px 20px;
+  border: none;
+  background: #6c63ff;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* UPLOAD BOX */
+.upload-box {
+  border: 2px dashed #ccc;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+  cursor: pointer;
+  background: #fafafa;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-content .plus {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.upload-content p {
+  margin: 5px 0;
+}
+
+.upload-content small {
+  color: gray;
+}
+
+/* SAVE BUTTON */
+.save-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #6c63ff;
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}

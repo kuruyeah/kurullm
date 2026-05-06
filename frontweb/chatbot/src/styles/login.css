@@ -1,0 +1,209 @@
+:root {
+  --primary-teal: #0087a4;
+  --dark-teal: #006d85;
+}
+
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+}
+
+.glass-card {
+  display: flex;
+  background: rgba(255, 255, 255, 0.25); /* More transparent for glass effect */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  max-width: 1100px;
+  width: 90%;
+  min-height: 600px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Left Brand Side */
+.brand-section {
+  flex: 1.2;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1); /* Subtle contrast for the left side */
+}
+
+.brand-logo-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #8ecaed;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Right Form Side */
+.form-section {
+  flex: 1;
+  background: white; /* Solid white background for the form side */
+  padding: 60px 50px;
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+}
+
+.login-form {
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-title {
+  color: var(--primary-teal);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #555;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 0.95rem;
+}
+
+.input-group {
+  margin-bottom: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fdfdfd;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.login-button {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--primary-teal);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  cursor: pointer; /* Makes sure the mouse becomes a pointing hand */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #006d85; 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 25px;
+  color: #666;
+}
+
+.footer-text a {
+  color: #0087a4; /* Using your --primary-teal variable color */
+  text-decoration: none; /* Removes the underline if you want */
+  font-weight: bold;
+}
+
+.footer-text a:hover {
+  color: #006d85;
+  text-decoration: underline;
+}
+
+/* Layout for NIM and Periksa Button */
+.input-with-button {
+  display: flex;
+  gap: 10px;
+}
+
+.input-with-button input {
+  flex: 1;
+}
+
+.check-button {
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Specific Signup Adjustments */
+.signup-card {
+  max-width: 500px; /* Slightly wider to match image_0db1a3.png */
+  display: flex;
+  justify-content: center;
+}
+
+.full-width {
+  width: 100% !important;
+  padding: 20px;
+}
+
+.signup-submit {
+  background-color: #90caf9 !important; /* Original lighter blue */
+  color: #1565c0 !important;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease !important; /* Makes the hover smooth */
+}
+
+/* Add the hover state */
+.signup-submit:hover {
+  background-color: #64b5f6 !important; /* A slightly darker blue on hover */
+  transform: translateY(-2px) !important; /* Optional: Makes the button "lift" up slightly */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow when lifted */
+  cursor: pointer; /* Ensures the mouse turns into a hand icon */
+}
+
+.link-text {
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .glass-card {
+    flex-direction: column;
+    margin: 20px;
+  }
+}
