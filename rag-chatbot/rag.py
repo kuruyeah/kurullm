@@ -1,8 +1,8 @@
 from sentence_transformers import SentenceTransformer
-from supabase import create_client
-from groq import Groq
+from supabase import create_client  # type: ignore[import]
+from groq import Groq  # type: ignore[import]
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # type: ignore[import]
 
 load_dotenv()
 
@@ -32,8 +32,16 @@ def search_similar(query_embedding):
 
 def ask_llm(context, question):
     prompt = f"""
-Jawab hanya berdasarkan konteks berikut.
-Jika tidak ada, jawab tidak ditemukan.
+System: You are a helpful, conversational assistant. 
+Use the provided context to answer the question.
+
+Rules:
+1. Grounding: Answer ONLY based on the context. If the answer isn't there, say sorry you can't find it.
+2. Language Mirroring: Always respond using the SAME language as the user's question. 
+   (e.g., If the question is in English, answer in English. If in Indonesian, answer in Indonesian).
+3. Personality: Be warm and human-like. Avoid robotic or dry responses.
+4. if you don't know the answer, say you don't know but answer in a human-like way, don't just say "I don't know", but say something like "I'm not sure about that, but I can help you find out!" or "That's a great question! I don't have the answer right now, but let's figure it out together!"
+
 
 Context:
 {context}
