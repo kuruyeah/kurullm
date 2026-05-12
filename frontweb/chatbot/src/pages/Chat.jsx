@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../SupabaseClient';
-import logoUMB from '../assets/logoumbwhite.webp';
+import Sidebar from '../components/Sidebar';
 import '../styles/chat.css';
 
 function Chat() {
@@ -15,6 +15,7 @@ function Chat() {
   ]);
   const [history, setHistory] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   // 1. Load User & History di awal
   useEffect(() => {
@@ -92,7 +93,7 @@ function Chat() {
 
       // Buat Sesi History baru jika belum ada
       if (!activeChatId) {
-        const { data: newChat, error } = await supabase
+        const { data: newChat } = await supabase
           .from('chat_history')
           .insert([
             { 
@@ -140,48 +141,18 @@ function Chat() {
 
   return (
     <div className="chat-container">
-      {/* LEFT SIDEBAR */}
-      <aside className="sidebar">
-        <div className="logo-section">
-          <img src={logoUMB} alt="UMB Logo" className="umb-logo" />
-          <button onClick={handleNewChat} className="new-chat-btn">+ NEW CHAT</button>
-        </div>
-
-        <nav className="chat-history">
-          <h3>Chat History</h3>
-          {history.length === 0 ? (
-            <p style={{ fontSize: '12px', opacity: 0.7 }}>No history yet.</p>
-          ) : (
-            history.map(item => (
-              <div 
-                key={item.id} 
-                /* Tambahkan class active jika chat sedang dibuka, dan panggil loadChatSession saat diklik */
-                className={`history-item ${currentChatId === item.id ? 'active' : ''}`} 
-                onClick={() => loadChatSession(item.id)}
-                style={{ cursor: 'pointer' }}
-              >
-                <p className="history-title">{item.title}</p>
-                <span className="history-time">
-                  {new Date(item.created_at).toLocaleDateString()} 
-                </span>
-              </div>
-            ))
-          )}
-        </nav>
-
-        <div className="user-profile" onClick={() => navigate('/profile')} style={{ cursor: 'pointer' }}>
-          <div className="avatar-circle">
-            {user?.user_metadata?.full_name?.split(' ').map(n => n[0]).join('').toUpperCase() || 'AP'}
-          </div>
-          <div className="user-info">
-            <p className="user-name">{user?.user_metadata?.full_name || 'Student'}</p>
-            <span className="view-profile">View Profile &gt;</span>
-          </div>
-        </div>
-      </aside>
+      <Sidebar
+        user={user}
+        history={history}
+        currentChatId={currentChatId}
+        onSelectChat={loadChatSession}
+        onNewChat={handleNewChat}
+        activePage="chat"
+        onCollapsedChange={setIsSidebarCollapsed}
+      />
 
       {/* MAIN CHAT AREA */}
-      <main className="chat-main">
+      <main className={`chat-main ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
         <header className="chat-header">
           <h2>{history.length > 0 && currentChatId ? history.find(h => h.id === currentChatId)?.title : 'New Chat'}</h2>
           <button onClick={handleLogout} className="logout-btn">

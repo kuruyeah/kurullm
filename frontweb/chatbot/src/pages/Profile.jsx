@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../SupabaseClient';
-import logoUMB from '../assets/logoUMB.png';
-import '../styles/chat.css'; // Reuse sidebar styles
+import Sidebar from '../components/Sidebar';
+import '../styles/chat.css';
+import '../styles/profile.css';
 
 function Profile() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
   const [profileData, setProfileData] = useState(null);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -16,6 +19,7 @@ function Profile() {
         navigate('/');
         return;
       }
+      setUser(user);
 
       const { data, error } = await supabase
         .from('users')
@@ -24,6 +28,12 @@ function Profile() {
         .single();
 
       if (data) setProfileData(data);
+      if (error) {
+        setProfileData({
+          full_name: user.user_metadata?.full_name || 'Student',
+          email: user.email,
+        });
+      }
       setLoading(false);
     };
     fetchProfile();
@@ -51,26 +61,15 @@ function Profile() {
 
   return (
     <div className="chat-container">
-      {/* SHARED SIDEBAR */}
-      <aside className="sidebar">
-        <div className="logo-section">
-          <img src={logoUMB} alt="UMB Logo" className="umb-logo" />
-          <button className="new-chat-btn" onClick={() => navigate('/chat')}>+ NEW CHAT</button>
-        </div>
-        <div className="chat-history">
-            {/* Same history list as Chat.jsx */}
-        </div>
-        <div className="user-profile active">
-          <div className="avatar-circle">{initials}</div>
-          <div className="user-info">
-            <p className="user-name">{profileData?.full_name}</p>
-            <span className="view-profile">View Profile</span>
-          </div>
-        </div>
-      </aside>
+      <Sidebar
+        user={user}
+        profile={profileData}
+        activePage="profile"
+        onCollapsedChange={setIsSidebarCollapsed}
+      />
 
       {/* PROFILE CONTENT */}
-      <main className="chat-main">
+      <main className={`chat-main ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
         <header className="chat-header">
           <h2>My Profile</h2>
           <button onClick={handleLogout} className="logout-btn">Logout</button>

@@ -1,0 +1,222 @@
+.profile-page {
+  min-height: 100vh;
+
+  background: #f5f7fb;
+
+  padding: 40px;
+}
+
+.profile-section {
+  width: min(1040px, 100%);
+  padding: 40px;
+}
+
+/* TOPBAR */
+
+.profile-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.profile-topbar h1 {
+  margin: 0;
+
+  font-size: 34px;
+
+  color: #0f172a;
+}
+
+.profile-subtitle {
+  color: #64748b;
+  margin-top: 6px;
+}
+
+/* CARD */
+
+.profile-card {
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 40px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* HEADER */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+
+  margin-bottom: 40px;
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.profile-avatar,
+.profile-avatar-large {
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 36px;
+  font-weight: bold;
+  flex: 0 0 auto;
+}
+
+.profile-titles h1 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.profile-id {
+  margin-top: 8px;
+  color: #64748b;
+}
+
+.student-id {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+/* GRID */
+
+.profile-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+}
+
+/* BOX */
+
+.info-box,
+.info-card {
+  background: #f8fafc;
+
+  border-radius: 8px;
+
+  padding: 28px;
+}
+
+.info-box h3,
+.info-card h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+
+  color: #111827;
+}
+
+.info-field,
+.field {
+  margin-bottom: 20px;
+}
+
+.info-field label,
+.field label {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  margin-bottom: 6px;
+}
+
+.info-field p,
+.field p {
+  margin: 0;
+
+  font-weight: 500;
+
+  color: #111827;
+}
+
+/* BUTTONS */
+
+.profile-actions {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 35px;
+}
+
+.back-btn,
+.save-btn,
+.logout-btn {
+  border: none;
+
+  padding: 14px 24px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.back-btn {
+  background: #e2e8f0;
+}
+
+.save-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.logout-btn {
+  background: #ef4444;
+  color: white;
+}
+
+/* LOADING */
+
+.loading-page {
+  padding: 50px;
+
+  font-size: 24px;
+}
+
+.loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f5f7fb;
+  color: #0f172a;
+  font-size: 20px;
+}
+
+@media (max-width: 760px) {
+  .profile-section {
+    padding: 24px 18px;
+  }
+
+  .profile-header,
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
