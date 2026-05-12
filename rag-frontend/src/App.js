@@ -1,13 +1,7 @@
-import Chat from "./Chat";
+import AdminPage from "./AdminPage";
 
 function App() {
-  return <Chat />;
-}
-
-export default App;import Chat from "./Chat";
-
-function App() {
-  return <Chat />;
+  return <AdminPage />;
 }
 
 export default App;

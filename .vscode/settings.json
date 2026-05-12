@@ -1,3 +1,4 @@
+
 {
-    "discord.enabled": true
+  "python.defaultInterpreterPath": "/Users/andrewfilonov/kurullm/.venv/bin/python"
 }

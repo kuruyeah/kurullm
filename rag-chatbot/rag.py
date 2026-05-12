@@ -3,34 +3,72 @@ from supabase import create_client  # type: ignore[import]
 from groq import Groq  # type: ignore[import]
 import os
 from dotenv import load_dotenv  # type: ignore[import]
+import torch
 
 load_dotenv()
 
-# INIT
-model = SentenceTransformer(
-    "intfloat/multilingual-e5-large",
-    device="cuda"
-)
+# =========================
+# DEVICE (SAFE FOR MAC)
+# =========================
+DEVICE = "mps" if torch.backends.mps.is_available() else "cpu" # type: ignore
+print("Using device:", DEVICE)
 
-supabase = create_client(
-    os.getenv("SUPABASE_URL"),
-    os.getenv("SUPABASE_KEY")
-)
+# =========================
+# LAZY MODEL LOAD (IMPORTANT for uvicorn reload)
+# =========================
+_model = None
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+def get_model():
+    global _model
+    if _model is None:
+        _model = SentenceTransformer("intfloat/multilingual-e5-large")
+        _model = _model.to(DEVICE)
+    return _model
 
+# =========================
+# SUPABASE (SAFE INIT)
+# =========================
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise ValueError("Missing Supabase credentials")
+
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+# =========================
+# GROQ (SAFE INIT)
+# =========================
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+if not GROQ_API_KEY:
+    raise ValueError("Missing GROQ_API_KEY")
+
+client = Groq(api_key=GROQ_API_KEY)
+
+# =========================
 # FUNCTIONS
-def embed_query(text):
+# =========================
+
+def embed_query(text: str):
+    model = get_model()
+    # IMPORTANT for E5 models
     return model.encode(f"query: {text}").tolist()
 
-def search_similar(query_embedding):
-    result = supabase.rpc("match_documents1", {
-        "query_embedding": query_embedding,
-        "match_count": 3
-    }).execute()
-    return result.data
 
-def ask_llm(context, question):
+def search_similar(query_embedding):
+    result = supabase.rpc(
+        "match_documents1",
+        {
+            "query_embedding": query_embedding,
+            "match_count": 3
+        }
+    ).execute()
+
+    return result.data or []
+
+
+def ask_llm(context: str, question: str):
     prompt = f"""
 System: You are a helpful, conversational assistant. 
 Use the provided context to answer the question.
@@ -58,11 +96,12 @@ Pertanyaan:
 
     return res.choices[0].message.content
 
-def run_rag(question):
+
+def run_rag(question: str):
     query_emb = embed_query(question)
     results = search_similar(query_emb)
 
-    context = "\n\n".join([r["content"] for r in results])
+    context = "\n\n".join([r.get("content", "") for r in results])
 
     answer = ask_llm(context, question)
 

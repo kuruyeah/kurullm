@@ -1,8 +1,8 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import FastAPI 
+from pydantic import BaseModel 
 from rag import run_rag
 
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware 
 
 # INIT APP
 app = FastAPI()
