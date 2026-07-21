@@ -548,3 +548,29 @@ button {
   color: #f59e0b;
 }
 
+.star-rating-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.submit-rating-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-rating-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.submitted-text {
+  font-size: 12px;
+  color: #10b981;
+  font-weight: bold;
+}

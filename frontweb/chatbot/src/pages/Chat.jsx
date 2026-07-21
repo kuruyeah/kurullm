@@ -4,30 +4,45 @@ import { supabase } from '../SupabaseClient';
 import Sidebar from '../components/Sidebar';
 import '../styles/chat.css';
 
-const StarRating = ({ onRate }) => {
-  const [rating, setRating] = useState(0);
+const StarRating = ({ onRate, initialRating = 0 }) => {
+  const [rating, setRating] = useState(initialRating);
   const [hover, setHover] = useState(0);
+  const [submitted, setSubmitted] = useState(initialRating > 0);
+
+  const handleSubmit = () => {
+    if (rating > 0 && !submitted) {
+      onRate(rating);
+      setSubmitted(true);
+    }
+  };
 
   return (
-    <div className="star-rating">
-      {[...Array(5)].map((star, index) => {
-        index += 1;
-        return (
-          <button
-            type="button"
-            key={index}
-            className={index <= (hover || rating) ? "star on" : "star off"}
-            onClick={() => {
-              setRating(index);
-              onRate(index);
-            }}
-            onMouseEnter={() => setHover(index)}
-            onMouseLeave={() => setHover(rating)}
-          >
-            <span className="star-char">★</span>
-          </button>
-        );
-      })}
+    <div className="star-rating-wrapper">
+      <div className="star-rating">
+        {[...Array(5)].map((star, index) => {
+          index += 1;
+          return (
+            <button
+              type="button"
+              key={index}
+              className={index <= (hover || rating) ? "star on" : "star off"}
+              onClick={() => {
+                if (!submitted) setRating(index);
+              }}
+              onMouseEnter={() => { if (!submitted) setHover(index); }}
+              onMouseLeave={() => { if (!submitted) setHover(rating); }}
+              disabled={submitted}
+              style={{ cursor: submitted ? 'default' : 'pointer' }}
+            >
+              <span className="star-char">★</span>
+            </button>
+          );
+        })}
+      </div>
+      {!submitted && rating > 0 && (
+        <button className="submit-rating-btn" onClick={handleSubmit}>Submit</button>
+      )}
+      {submitted && <span className="submitted-text">Thank you!</span>}
     </div>
   );
 };
@@ -39,7 +54,7 @@ function Chat() {
   const [user, setUser] = useState(null);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
-    { role: 'bot', content: 'What can I help you?' }
+    { role: 'bot', content: 'What can I help you?', isGreeting: true }
   ]);
   const [history, setHistory] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);
@@ -77,7 +92,7 @@ function Chat() {
     // Ambil semua pesan dari tabel chat_messages berdasarkan chat_id
     const { data, error } = await supabase
       .from('chat_messages')
-      .select('role, content')
+      .select('id, role, content, rating')
       .eq('chat_id', chatId)
       .order('created_at', { ascending: true });
 
@@ -86,12 +101,12 @@ function Chat() {
     } else if (data && data.length > 0) {
       setMessages(data); // Tampilkan isi pesan ke layar
     } else {
-      setMessages([{ role: 'bot', content: 'What can I help you?' }]);
+      setMessages([{ role: 'bot', content: 'What can I help you?', isGreeting: true }]);
     }
   };
 
   const handleNewChat = () => {
-    setMessages([{ role: 'bot', content: 'What can I help you?' }]);
+    setMessages([{ role: 'bot', content: 'What can I help you?', isGreeting: true }]);
     setCurrentChatId(null);
   };
 
@@ -105,6 +120,8 @@ function Chat() {
     setInput('');
 
     try {
+      const startTime = performance.now();
+      
       const response = await fetch('http://localhost:8000/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -113,7 +130,16 @@ function Chat() {
 
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
+      const endTime = performance.now();
+      
       const botResponse = data.answer;
+      const responseTimeMs = Math.round(endTime - startTime);
+      
+      // Basic fallback detection (you can improve this based on your bot's exact error phrasing)
+      const fallbackKeywords = ["maaf", "tidak tahu", "don't know", "sorry", "cannot answer"];
+      const lowerResponse = botResponse.toLowerCase();
+      const isFallback = fallbackKeywords.some(keyword => lowerResponse.includes(keyword));
+      const fallbackReason = isFallback ? "Bot apologized or didn't know the answer" : null;
 
       setMessages(prev => [...prev, { role: 'bot', content: botResponse }]);
 
@@ -139,19 +165,48 @@ function Chat() {
           setHistory(prev => [newChat, ...prev]);
         }
       } else {
-        // Update pesan terakhir di sidebar
+        // Update pesan terakhir di sidebar dan updated_at
         await supabase
           .from('chat_history')
-          .update({ last_message: botResponse.substring(0, 50) + (botResponse.length > 50 ? "..." : "") })
+          .update({ 
+            last_message: botResponse.substring(0, 50) + (botResponse.length > 50 ? "..." : ""),
+            updated_at: new Date().toISOString()
+          })
           .eq('id', activeChatId);
       }
 
       // SIMPAN DETAIL PESAN KE TABEL chat_messages
       if (activeChatId) {
-        await supabase.from('chat_messages').insert([
+        const { data: insertedMsg, error: insertError } = await supabase.from('chat_messages').insert([
           { chat_id: activeChatId, role: 'user', content: currentInput },
-          { chat_id: activeChatId, role: 'bot', content: botResponse }
-        ]);
+          { 
+            chat_id: activeChatId, 
+            role: 'bot', 
+            content: botResponse,
+            response_time_ms: responseTimeMs,
+            is_fallback: isFallback,
+            fallback_reason: fallbackReason
+          }
+        ]).select();
+
+        if (insertError) {
+          console.error("Gagal menyimpan pesan:", insertError);
+        } else if (insertedMsg && insertedMsg.length > 0) {
+          const botMsgDb = insertedMsg.find(m => m.role === 'bot');
+          if (botMsgDb) {
+            // Update state messages agar pesan bot yang baru saja dibuat memiliki ID dari database
+            setMessages(prev => {
+              const newMsgs = [...prev];
+              for (let i = newMsgs.length - 1; i >= 0; i--) {
+                if (newMsgs[i].role === 'bot' && !newMsgs[i].id) {
+                  newMsgs[i].id = botMsgDb.id;
+                  break;
+                }
+              }
+              return newMsgs;
+            });
+          }
+        }
       }
 
     } catch (error) {
@@ -196,12 +251,26 @@ function Chat() {
                 <div className="message-bubble">
                   {msg.content.split('\n').map((line, i) => <p key={i}>{line}</p>)}
                 </div>
-                {msg.role === 'bot' && (
+                {msg.role === 'bot' && !msg.isGreeting && (
                   <div className="feedback-container">
                     <span className="feedback-text">How helpful was this?</span>
-                    <StarRating onRate={(rating) => {
-                      // Note: csat_score is mocked because the db doesn't have the column yet
-                      console.log(`Saved rating ${rating} for bot message`);
+                    <StarRating 
+                      initialRating={msg.rating || 0}
+                      onRate={async (rating) => {
+                      if (msg.id) {
+                        const { error } = await supabase
+                          .from('chat_messages')
+                          .update({ rating: rating })
+                          .eq('id', msg.id);
+                        
+                        if (error) {
+                          console.error("Error updating rating:", error);
+                        } else {
+                          console.log(`Saved rating ${rating} for bot message ${msg.id}`);
+                        }
+                      } else {
+                        console.warn("Message ID not found, cannot save rating yet.");
+                      }
                     }} />
                   </div>
                 )}
