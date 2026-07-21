@@ -46,7 +46,29 @@ function Login() {
       alert(error.message);
     } else {
       console.log("Logged in successfully:", data.user);
-      navigate('/chat');
+      
+      // Fetch user role from database
+      const { data: userData, error: userError } = await supabase
+        .from('users')
+        .select('role')
+        .eq('email', loginEmail)
+        .single();
+        
+      // Default to student if no role is explicitly set or if the column doesn't exist yet
+      let role = 'student'; 
+      if (userData && userData.role) {
+        role = userData.role;
+      }
+      
+      // Store role in localStorage for route protection
+      localStorage.setItem('userRole', role);
+      
+      // Redirect based on role
+      if (role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/chat');
+      }
     }
 
     setLoading(false);

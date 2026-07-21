@@ -4,6 +4,34 @@ import { supabase } from '../SupabaseClient';
 import Sidebar from '../components/Sidebar';
 import '../styles/chat.css';
 
+const StarRating = ({ onRate }) => {
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+
+  return (
+    <div className="star-rating">
+      {[...Array(5)].map((star, index) => {
+        index += 1;
+        return (
+          <button
+            type="button"
+            key={index}
+            className={index <= (hover || rating) ? "star on" : "star off"}
+            onClick={() => {
+              setRating(index);
+              onRate(index);
+            }}
+            onMouseEnter={() => setHover(index)}
+            onMouseLeave={() => setHover(rating)}
+          >
+            <span className="star-char">★</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+
 function Chat() {
   const navigate = useNavigate();
   const scrollRef = useRef(null);
@@ -164,8 +192,19 @@ function Chat() {
           {messages.map((msg, index) => (
             <div key={index} className={`message-row ${msg.role}`}>
               {msg.role === 'bot' && <div className="bot-icon"></div>}
-              <div className="message-bubble">
-                {msg.content.split('\n').map((line, i) => <p key={i}>{line}</p>)}
+              <div className="message-wrapper">
+                <div className="message-bubble">
+                  {msg.content.split('\n').map((line, i) => <p key={i}>{line}</p>)}
+                </div>
+                {msg.role === 'bot' && (
+                  <div className="feedback-container">
+                    <span className="feedback-text">How helpful was this?</span>
+                    <StarRating onRate={(rating) => {
+                      // Note: csat_score is mocked because the db doesn't have the column yet
+                      console.log(`Saved rating ${rating} for bot message`);
+                    }} />
+                  </div>
+                )}
               </div>
             </div>
           ))}
