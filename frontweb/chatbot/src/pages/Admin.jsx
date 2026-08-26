@@ -75,7 +75,7 @@ function AdminPage() {
 
   const calculateMetrics = () => {
     // Helper to calculate breakdown stats for a specific platform
-    const getStats = (sessions, messages, userIdField) => {
+    const getStats = (sessions, messages, userIdField, platform) => {
       let unique = new Set();
       let totalDur = 0;
       let durCount = 0;
@@ -98,7 +98,16 @@ function AdminPage() {
       }
       let rCount = 0, rTotal = 0;
       messages.forEach(m => {
-        if (m.role === 'bot' && m.rating > 0) { rTotal += m.rating; rCount++; }
+        if (m.role !== 'user') {
+          let normalizedRating = m.rating;
+          if (platform === 'telegram' && m.rating !== null && m.rating !== undefined) {
+            normalizedRating = m.rating === 1 ? 5 : 3;
+          }
+          if (normalizedRating > 0) {
+            rTotal += normalizedRating;
+            rCount++;
+          }
+        }
       });
       return {
         sessions: sessions.length,
@@ -108,19 +117,19 @@ function AdminPage() {
       };
     };
 
-    const webStats = getStats(rawData.webSessions, rawData.webMessages, 'user_id');
-    const tgStats = getStats(rawData.tgSessions, rawData.tgMessages, 'telegram_id');
+    const webStats = getStats(rawData.webSessions, rawData.webMessages, 'user_id', 'web');
+    const tgStats = getStats(rawData.tgSessions, rawData.tgMessages, 'telegram_id', 'telegram');
 
     let activeSessions = [];
     let activeMessages = [];
 
     if (platformFilter === 'all' || platformFilter === 'web') {
       activeSessions = [...activeSessions, ...rawData.webSessions.map(s => ({...s, platform_user_id: s.user_id}))];
-      activeMessages = [...activeMessages, ...rawData.webMessages];
+      activeMessages = [...activeMessages, ...rawData.webMessages.map(m => ({...m, platform: 'web'}))];
     }
     if (platformFilter === 'all' || platformFilter === 'telegram') {
       activeSessions = [...activeSessions, ...rawData.tgSessions.map(s => ({...s, platform_user_id: s.telegram_id}))];
-      activeMessages = [...activeMessages, ...rawData.tgMessages];
+      activeMessages = [...activeMessages, ...rawData.tgMessages.map(m => ({...m, platform: 'telegram'}))];
     }
 
     let totalSessions = 0;
@@ -181,7 +190,7 @@ function AdminPage() {
         const hour = new Date(msg.created_at).getHours();
         hourCounts[hour]++;
 
-        if (msg.role === 'bot') {
+        if (msg.role !== 'user') {
           botMessagesCount++;
           if (msg.is_fallback) {
             fallbacks++;
@@ -201,15 +210,20 @@ function AdminPage() {
           if (msg.response_time_ms) totalResponseTime += msg.response_time_ms;
           
           // CSAT Calculation
-          if (msg.rating > 0) {
-            totalRatings += msg.rating;
+          let normalizedRating = msg.rating;
+          if (msg.platform === 'telegram' && msg.rating !== null && msg.rating !== undefined) {
+            normalizedRating = msg.rating === 1 ? 5 : 3;
+          }
+
+          if (normalizedRating > 0) {
+            totalRatings += normalizedRating;
             ratingCount++;
             
-            if (msg.rating === 5) csatDistribution['Very Satisfied']++;
-            else if (msg.rating === 4) csatDistribution['Satisfied']++;
-            else if (msg.rating === 3) csatDistribution['Neutral']++;
-            else if (msg.rating === 2) csatDistribution['Dissatisfied']++;
-            else if (msg.rating === 1) csatDistribution['Very Dissatisfied']++;
+            if (normalizedRating === 5) csatDistribution['Very Satisfied']++;
+            else if (normalizedRating === 4) csatDistribution['Satisfied']++;
+            else if (normalizedRating === 3) csatDistribution['Neutral']++;
+            else if (normalizedRating === 2) csatDistribution['Dissatisfied']++;
+            else if (normalizedRating === 1) csatDistribution['Very Dissatisfied']++;
           }
         }
       });
