@@ -19,10 +19,32 @@ def get_active_conversation(telegram_id: int):
 
 def create_conversation(
     telegram_id: int,
-    telegram_chat_id: int,
-    username: str | None,
-    first_name: str |None,
+    telegram_chat_id: int | None = None,
+    username: str | None = None,
+    first_name: str | None = None,
 ):
+    if telegram_chat_id is None or (username is None and first_name is None):
+        prev = (
+            supabase
+            .table("telegram_conversations")
+            .select("telegram_chat_id, username, first_name")
+            .eq("telegram_id", telegram_id)
+            .order("created_at", desc=True)
+            .limit(1)
+            .execute()
+        )
+        if prev.data:
+            last_row = prev.data[0]
+            if telegram_chat_id is None:
+                telegram_chat_id = last_row.get("telegram_chat_id")
+            if username is None:
+                username = last_row.get("username")
+            if first_name is None:
+                first_name = last_row.get("first_name")
+
+    if telegram_chat_id is None:
+        telegram_chat_id = telegram_id
+
     data = {
         "telegram_id": telegram_id,
         "telegram_chat_id": telegram_chat_id,
@@ -181,8 +203,11 @@ def get_conversations(
     return response.data
 
 def activate_conversation(
+    telegram_id: int,
     conversation_id: str,
 ):
+    deactivate_all_conversations(telegram_id)
+
     response = (
         supabase
         .table("telegram_conversations")
@@ -192,6 +217,7 @@ def activate_conversation(
             }
         )
         .eq("id", conversation_id)
+        .eq("telegram_id", telegram_id)
         .execute()
     )
 

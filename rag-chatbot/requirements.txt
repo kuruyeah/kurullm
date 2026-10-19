@@ -10,3 +10,5 @@ python-telegram-bot
 torch
 torchvision
 torchaudio
+qdrant-client
+transformers

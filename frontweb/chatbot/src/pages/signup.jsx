@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../SupabaseClient'; 
+import { useModal } from '../components/ModalContext';
 import worldBg from '../assets/worldbg.jpg'; 
 import '../styles/login.css';
 
 function Signup() {
   const navigate = useNavigate();
+  const { showAlert } = useModal();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     nim: '',
@@ -26,7 +28,12 @@ function Signup() {
   };
 
   const handleCheckNIM = async () => {
-    if (!formData.nim) return alert("Please enter a NIM first");
+    if (!formData.nim) {
+      return showAlert("Please enter a NIM first.", {
+        title: "NIM Required",
+        variant: "warning"
+      });
+    }
     
     setLoading(true);
     try {
@@ -37,9 +44,15 @@ function Signup() {
         .single();
 
       if (error || !data) {
-        alert("NIM not found. Ensure the NIM is pre-registered in the database.");
+        await showAlert("NIM not found. Ensure the NIM is pre-registered in the database.", {
+          title: "NIM Not Found",
+          variant: "warning"
+        });
       } else if (data.is_registered) {
-        alert("This NIM is already registered. Please login instead.");
+        await showAlert("This NIM is already registered. Please login instead.", {
+          title: "Already Registered",
+          variant: "info"
+        });
       } else {
         setFormData(prev => ({
           ...prev,
@@ -47,10 +60,16 @@ function Signup() {
           email: data.email || '',
           phone: data.phone_number || ''
         }));
-        alert("NIM Verified! Information autofilled.");
+        await showAlert("NIM Verified! Information autofilled.", {
+          title: "NIM Verified",
+          variant: "success"
+        });
       }
     } catch (err) {
-      alert("Error checking NIM");
+      await showAlert("Error checking NIM.", {
+        title: "Error",
+        variant: "danger"
+      });
     } finally {
       setLoading(false);
     }
@@ -58,8 +77,18 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) return alert("Passwords do not match!");
-    if (!formData.agree) return alert("Please check the 'Data already correct' box.");
+    if (formData.password !== formData.confirmPassword) {
+      return showAlert("Passwords do not match!", {
+        title: "Password Mismatch",
+        variant: "warning"
+      });
+    }
+    if (!formData.agree) {
+      return showAlert("Please check the 'Data already correct' box.", {
+        title: "Confirmation Needed",
+        variant: "warning"
+      });
+    }
 
     setLoading(true);
 
@@ -94,12 +123,18 @@ function Signup() {
 
       if (dbError) throw dbError;
 
-      alert("Success! Please check your email (" + formData.email + ") for a confirmation link.");
+      await showAlert("Please check your email (" + formData.email + ") for a confirmation link.", {
+        title: "Registration Successful!",
+        variant: "success"
+      });
       navigate('/');
 
     } catch (err) {
       console.error("Full error details:", err);
-      alert("Registration Error: " + (err.message || "An error occurred"));
+      await showAlert(err.message || "An error occurred", {
+        title: "Registration Error",
+        variant: "danger"
+      });
     } finally {
       setLoading(false);
     }

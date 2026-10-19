@@ -11,7 +11,7 @@ MODEL_NAME = "intfloat/multilingual-e5-large"
 
 QDRANT_URL = "http://localhost:6333"
 
-COLLECTION_NAME = "academic_chunks"
+COLLECTION_NAME = "knowledge_chunks"
 
 TOP_K = 3
 

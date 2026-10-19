@@ -9,6 +9,9 @@
 .profile-section {
   width: min(1040px, 100%);
   padding: 40px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 /* TOPBAR */

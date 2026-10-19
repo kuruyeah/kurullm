@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../SupabaseClient'; // Path confirmed from your project structure
+import { useModal } from '../components/ModalContext';
 import ultLogo from '../assets/Logo ULT Warna.webp'; 
 import worldBg from '../assets/worldbg.jpg'; 
 import '../styles/login.css';
@@ -10,6 +11,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { showAlert } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,8 +31,11 @@ function Login() {
         .single();
 
       if (error || !data) {
-        alert("NIM not found. Please check your ID or use Email.");
         setLoading(false);
+        await showAlert("NIM not found. Please check your ID or use Email.", {
+          title: "NIM Not Found",
+          variant: "warning"
+        });
         return;
       }
       loginEmail = data.email;
@@ -43,7 +48,10 @@ function Login() {
     });
 
     if (error) {
-      alert(error.message);
+      await showAlert(error.message, {
+        title: "Login Failed",
+        variant: "danger"
+      });
     } else {
       console.log("Logged in successfully:", data.user);
       

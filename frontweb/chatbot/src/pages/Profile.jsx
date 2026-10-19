@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../SupabaseClient';
 import Sidebar from '../components/Sidebar';
+import { useModal } from '../components/ModalContext';
 import '../styles/chat.css';
 import '../styles/profile.css';
 
 function Profile() {
   const navigate = useNavigate();
+  const { showConfirm, showAlert } = useModal();
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [profileData, setProfileData] = useState(null);
@@ -40,20 +42,26 @@ function Profile() {
   }, [navigate]);
 
   const handleLogout = async () => {
-    // Show a confirmation popup
-    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    const confirmLogout = await showConfirm("Are you sure you want to log out?", {
+      title: "Log Out",
+      confirmText: "Log Out",
+      cancelText: "Cancel",
+      variant: "danger"
+    });
     
     if (confirmLogout) {
-        try {
+      try {
         await supabase.auth.signOut();
-        alert("You have successfully logged out.");
         navigate('/');
-        } catch (error) {
+      } catch (error) {
         console.error("Error logging out:", error.message);
-        alert("Error logging out. Please try again.");
-        }
+        await showAlert("Error logging out. Please try again.", {
+          title: "Logout Error",
+          variant: "danger"
+        });
       }
-    };
+    }
+  };
 
   if (loading) return <div className="loading">Loading Profile...</div>;
 

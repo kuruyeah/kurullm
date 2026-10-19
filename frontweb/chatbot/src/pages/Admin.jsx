@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { supabase } from "../SupabaseClient";
+import { useModal } from "../components/ModalContext";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 import { Users, MessageSquare, Clock, Star, LogOut, UploadCloud, FileText, CheckCircle2 } from 'lucide-react';
 
@@ -11,6 +12,7 @@ const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'];
 
 function AdminPage() {
   const navigate = useNavigate();
+  const { showConfirm, showAlert } = useModal();
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
 
@@ -269,7 +271,13 @@ function AdminPage() {
   };
 
   const handleLogout = async () => {
-    if (window.confirm("Are you sure you want to log out?")) {
+    const confirmed = await showConfirm("Are you sure you want to log out?", {
+      title: "Log Out",
+      confirmText: "Log Out",
+      cancelText: "Cancel",
+      variant: "danger"
+    });
+    if (confirmed) {
       await supabase.auth.signOut();
       localStorage.removeItem('userRole');
       navigate('/');
@@ -278,7 +286,10 @@ function AdminPage() {
 
   const handleFileUpload = async () => {
     if (!file) {
-      alert("Please choose a file first.");
+      await showAlert("Please choose a file first.", {
+        title: "No File Selected",
+        variant: "warning"
+      });
       return;
     }
     setUploading(true);
@@ -288,11 +299,17 @@ function AdminPage() {
       await axios.post("http://127.0.0.1:8000/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      alert("Regulation uploaded & embedded successfully!");
+      await showAlert("Regulation uploaded & embedded successfully!", {
+        title: "Upload Complete",
+        variant: "success"
+      });
       setFile(null);
     } catch (err) {
       console.error("Upload Error:", err);
-      alert("Error during file upload.");
+      await showAlert("Error during file upload.", {
+        title: "Upload Failed",
+        variant: "danger"
+      });
     } finally {
       setUploading(false);
     }

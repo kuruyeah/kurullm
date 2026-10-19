@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ModalProvider } from './components/ModalContext';
 
 // Import your page components
 import Login from './pages/login';
@@ -29,30 +30,32 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        
-        <Route path="/chat" element={
-          <ProtectedRoute>
-            <Chat />
-          </ProtectedRoute>
-        } />
-        
-        <Route path="/profile" element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        } />
-        
-        <Route path="/admin" element={
-          <AdminRoute>
-            <Admin />
-          </AdminRoute>
-        } />
-      </Routes>
-    </Router>
+    <ModalProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          
+          <Route path="/chat" element={
+            <ProtectedRoute>
+              <Chat />
+            </ProtectedRoute>
+          } />
+          
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } />
+          
+          <Route path="/admin" element={
+            <AdminRoute>
+              <Admin />
+            </AdminRoute>
+          } />
+        </Routes>
+      </Router>
+    </ModalProvider>
   );
 }
 

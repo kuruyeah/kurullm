@@ -255,7 +255,8 @@ button {
 }
 
 .chat-main {
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   margin-left: 320px;
   width: calc(100% - 320px);
   background: #f5f7fb;
@@ -271,6 +272,7 @@ button {
 
 .chat-header {
   background: white;
+  flex-shrink: 0;
 
   padding: 25px 40px;
 
@@ -279,10 +281,12 @@ button {
   align-items: center;
 
   border-bottom: 1px solid #e5e7eb;
+  z-index: 10;
 }
 
 .messages-area {
   flex: 1;
+  min-height: 0;
 
   padding: 40px;
 
@@ -331,10 +335,12 @@ button {
 
 .chat-input-area {
   background: white;
+  flex-shrink: 0;
 
   padding: 25px 40px;
 
   border-top: 1px solid #e5e7eb;
+  z-index: 10;
 }
 
 .input-wrapper {
@@ -574,3 +580,161 @@ button {
   color: #10b981;
   font-weight: bold;
 }
+
+.reference-link {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.reference-link:hover {
+  color: #1d4ed8;
+}
+
+/* ========================= */
+/* RAG PROCESSING INDICATOR  */
+/* ========================= */
+
+.bot-icon.pulse {
+  animation: botPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes botPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.75; }
+}
+
+.processing-bubble {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 16px 20px;
+  min-width: 320px;
+}
+
+.processing-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.processing-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2.5px solid #dbeafe;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: ragSpin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes ragSpin {
+  to { transform: rotate(360deg); }
+}
+
+.processing-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.processing-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.processing-step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.processing-step-item.done {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.processing-step-item.active {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.processing-step-item.pending {
+  color: #94a3b8;
+  opacity: 0.7;
+}
+
+.step-indicator {
+  width: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ========================= */
+/* MARKDOWN FORMATTING       */
+/* ========================= */
+
+.message-bubble {
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+.msg-paragraph {
+  margin: 0 0 6px 0;
+}
+
+.msg-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.msg-spacer {
+  height: 8px;
+}
+
+.msg-heading {
+  margin: 12px 0 6px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.msg-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.msg-list-item.numbered {
+  margin-top: 8px;
+}
+
+.msg-list-item.bullet {
+  padding-left: 12px;
+}
+
+.list-marker {
+  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 16px;
+}
+
+.list-content {
+  flex: 1;
+}
+
+.inline-code {
+  background: rgba(15, 23, 42, 0.07);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+
+
