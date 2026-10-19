@@ -1,0 +1,430 @@
+{
+  "pages": [
+    {
+      "page_idx": 0,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.12,
+            0.087,
+            0.605,
+            0.105
+          ],
+          "level": 2,
+          "content": "\\*INFORMASI TUGAS AKHIR – TEKNIK INFORMATIKA\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.148,
+            0.553,
+            0.164
+          ],
+          "content": "Yth. Mahasiswa Program Studi Teknik Informatika,"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.206,
+            0.851,
+            0.245
+          ],
+          "content": "List Dosen Pembimbing Tugas Akhir (TA) Teknik Informatika Periode Gasal 2026/2027 telah selesai dilakukan plotting oleh Program Studi."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.288,
+            0.689,
+            0.305
+          ],
+          "content": "\\* Daftar Dosen Pembimbing dapat dilihat melalui link berikut:\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.319,
+            0.458,
+            0.335
+          ],
+          "content": "https://s.id/ListDospemTATIGasal2627"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.378,
+            0.773,
+            0.395
+          ],
+          "content": "Selanjutnya, mohon diperhatikan tahapan dan beberapa ketentuan berikut:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.439,
+            0.441,
+            0.456
+          ],
+          "content": "\\* 1 Tidak ada kelas TA dan absensi\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.469,
+            0.836,
+            0.527
+          ],
+          "content": "Pada tahap Tugas Akhir, mahasiswa tidak mengikuti kelas TA dan tidak ada absensi perkuliahan. Kegiatan TA dilakukan melalui bimbingan langsung dengan Dosen Pembimbing TA."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.12,
+            0.57,
+            0.544,
+            0.587
+          ],
+          "level": 2,
+          "content": "2 \\*Wajib melakukan bimbingan minimal 8 kali\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.6,
+            0.863,
+            0.639
+          ],
+          "content": "Mahasiswa wajib melakukan bimbingan TA minimal 8 kali dengan Dosen Pembimbing. Seluruh aktivitas bimbingan wajib dicatat ke dalam ULT (logbook bimbingan)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.68,
+            0.802,
+            0.716
+          ],
+          "content": "Dosen Pembimbing akan melakukan pengecekan terhadap logbook bimbingan tersebut."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.121,
+            0.761,
+            0.456,
+            0.778
+          ],
+          "level": 2,
+          "content": "3 \\*Menyelesaikan bimbingan di ULT\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.792,
+            0.861,
+            0.87
+          ],
+          "content": "Setelah mahasiswa telah melakukan minimal 8 kali bimbingan dan seluruh logbook telah diperiksa oleh Dosen Pembimbing, Dosen dapat menekan tombol \"Selesai Bimbingan\" pada sistem ULT jika sudah cek bimbingan 8x agar mahasiswa bisa daftar sidang akhir."
+        }
+      ]
+    },
+    {
+      "page_idx": 1,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.12,
+            0.088,
+            0.664,
+            0.106
+          ],
+          "level": 2,
+          "content": "4 \\*Persiapkan persyaratan sebelum mendaftar Sidang Akhir\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.118,
+            0.869,
+            0.176
+          ],
+          "content": "Saat ini terdapat beberapa kewajiban yang perlu diperhatikan mahasiswa. Oleh karena itu, diharapkan sebelum melakukan pendaftaran Sidang Akhir, seluruh persyaratan berikut sudah diselesaikan:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.189,
+            0.869,
+            0.228
+          ],
+          "content": "\\_Telah menyelesaikan Mikrokredensial/Coursera sesuai ketentuan yang berlaku.\\_ (https://mercubuanaskilltrack.com/)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.241,
+            0.852,
+            0.28
+          ],
+          "content": "\\_Sudah memiliki keterangan telah mengikuti Ujikom dari LSP Universitas Mercu Buana.\\_ (https://mercubuana.ac.id/biro-kampus/lembaga-sertifikasi-profesi)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.292,
+            0.88,
+            0.33
+          ],
+          "content": "Untuk sertifikasi kompetensi BNSP, sesuai SK Rektor, pelaksanaan Ujikom wajib melalui LSP Universitas Mercu Buana (LSP UMB)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.375,
+            0.825,
+            0.433
+          ],
+          "content": "\\*Mohon jangan menunggu sampai mendekati pendaftaran sidang untuk menyelesaikan kedua hal tersebut. Sebaiknya dipersiapkan dan diselesaikan dari sekarang agar tidak menghambat proses pendaftaran Sidang Akhir.\\*"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.12,
+            0.475,
+            0.392,
+            0.493
+          ],
+          "level": 2,
+          "content": "5 \\*Pendaftaran Sidang Akhir\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.505,
+            0.869,
+            0.543
+          ],
+          "content": "Setelah proses bimbingan dinyatakan selesai dan seluruh persyaratan telah terpenuhi, mahasiswa dapat melanjutkan ke proses pendaftaran Sidang Akhir."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.587,
+            0.337,
+            0.604
+          ],
+          "content": "\\*Perlu diperhatikan:\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.617,
+            0.579,
+            0.634
+          ],
+          "content": "Sidang Akhir hanya dilaksanakan pada bulan Januari."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.12,
+            0.678,
+            0.316,
+            0.694
+          ],
+          "level": 2,
+          "content": "\\*Jadwal Yudisium\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.708,
+            0.591,
+            0.725
+          ],
+          "content": "Yudisium dilaksanakan setiap Jumat pada akhir bulan."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.768,
+            0.844,
+            0.805
+          ],
+          "content": "Apabila mahasiswa belum melakukan submit yudisium sampai Jumat terakhir pada bulan tersebut, maka proses yudisium akan masuk ke bulan berikutnya."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.847,
+            0.836,
+            0.906
+          ],
+          "content": "Oleh karena itu, mahasiswa disarankan untuk tidak mendaftar sidang terlalu dekat dengan akhir bulan, karena waktu untuk menyelesaikan revisi setelah sidang dan memenuhi persyaratan yudisium akan menjadi semakin sempit."
+        }
+      ]
+    },
+    {
+      "page_idx": 2,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.117,
+            0.768,
+            0.135
+          ],
+          "content": "7 \\*Bagi mahasiswa yang sudah Sempro tetapi belum menggunakan ULT\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.178,
+            0.854,
+            0.236
+          ],
+          "content": "Bagi mahasiswa yang sebelumnya sudah melaksanakan Seminar Proposal (Sempro), tetapi proses bimbingannya belum menggunakan ULT, silakan melapor ke TU untuk diproses bypass pada sistem ULT."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.123,
+            0.278,
+            0.146,
+            0.294
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_2_image_2.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.122,
+            0.278,
+            0.58,
+            0.296
+          ],
+          "level": 2,
+          "content": "一 \\*Rangkaian yang perlu diperhatikan mahasiswa:\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.309,
+            0.845,
+            0.348
+          ],
+          "content": "Plotting Dospem → Bimbingan minimal 8x → Logbook ULT diperiksa Dosen → \"Selesai Bimbingan\" → Daftar Sidang → Sidang Akhir → Revisi → Submit Yudisium"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.388,
+            0.848,
+            0.447
+          ],
+          "content": "Mohon seluruh mahasiswa memperhatikan tahapan tersebut dan mempersiapkan persyaratan dari jauh-jauh hari agar proses Tugas Akhir → Sidang → Revisi → Yudisium dapat berjalan dengan lancar."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.49,
+            0.533,
+            0.507
+          ],
+          "content": "Terima kasih atas perhatian dan kerja samanya."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.536,
+            0.489,
+            0.561,
+            0.507
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_2_image_7.jpg"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.10"
+    },
+    "document": {
+      "authors": [
+        "ERVANSYAH PUTRA ROCHMANDA"
+      ],
+      "languages": [
+        "en"
+      ],
+      "created_at": "2026-10-14T00:29:20+07:00",
+      "modified_at": "2026-10-14T00:29:20+07:00",
+      "creator_application": "Microsoft® Word LTSC",
+      "producer_application": "Microsoft® Word LTSC",
+      "page_count": 3,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "standard",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 0,
+          "width_pt": 595.3200073242188,
+          "height_pt": 841.9199829101562
+        },
+        {
+          "page_idx": 1,
+          "width_pt": 595.3200073242188,
+          "height_pt": 841.9199829101562
+        },
+        {
+          "page_idx": 2,
+          "width_pt": 595.3200073242188,
+          "height_pt": 841.9199829101562
+        }
+      ]
+    }
+  },
+  "is_full_document": true
+}

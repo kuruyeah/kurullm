@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+sentence-transformers
+supabase
+groq
+langdetect
+python-dotenv
+pypdf
+python-telegram-bot
+torch
+torchvision
+torchaudio

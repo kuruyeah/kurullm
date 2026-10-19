@@ -1,0 +1,1105 @@
+{
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.10"
+    },
+    "document": {
+      "title": null,
+      "authors": [
+        "ERVANSYAH PUTRA ROCHMANDA"
+      ],
+      "subject": null,
+      "keywords": [],
+      "description": null,
+      "languages": [
+        "en"
+      ],
+      "identifiers": [],
+      "publisher": null,
+      "created_at": "2026-10-14T00:29:20+07:00",
+      "modified_at": "2026-10-14T00:29:20+07:00",
+      "creator_application": "Microsoft® Word LTSC",
+      "producer_application": "Microsoft® Word LTSC",
+      "page_count": 3,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "standard",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 0,
+          "width_pt": 595.3200073242188,
+          "height_pt": 841.9199829101562
+        },
+        {
+          "page_idx": 1,
+          "width_pt": 595.3200073242188,
+          "height_pt": 841.9199829101562
+        },
+        {
+          "page_idx": 2,
+          "width_pt": 595.3200073242188,
+          "height_pt": 841.9199829101562
+        }
+      ]
+    }
+  },
+  "schema_version": "2.0",
+  "schema": "docvortex.model",
+  "pages": [
+    [
+      {
+        "type": "paragraph_title",
+        "bbox": [
+          0.12,
+          0.087,
+          0.605,
+          0.105
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "*INFORMASI TUGAS AKHIR – TEKNIK INFORMATIKA*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.124,
+              0.09,
+              0.601,
+              0.103
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.148,
+          0.553,
+          0.164
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Yth. Mahasiswa Program Studi Teknik Informatika,"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.149,
+              0.55,
+              0.163
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.206,
+          0.851,
+          0.245
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "List Dosen Pembimbing Tugas Akhir (TA) Teknik Informatika Periode Gasal 2026/2027 telah selesai dilakukan plotting oleh Program Studi."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.209,
+              0.847,
+              0.221
+            ]
+          },
+          {
+            "bbox": [
+              0.118,
+              0.228,
+              0.564,
+              0.242
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.117,
+          0.288,
+          0.689,
+          0.305
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "* Daftar Dosen Pembimbing dapat dilihat melalui link berikut:*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.29,
+              0.687,
+              0.303
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.117,
+          0.319,
+          0.458,
+          0.335
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "https://s.id/ListDospemTATIGasal2627"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.119,
+              0.32,
+              0.454,
+              0.333
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.378,
+          0.773,
+          0.395
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Selanjutnya, mohon diperhatikan tahapan dan beberapa ketentuan berikut:"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.38,
+              0.77,
+              0.393
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.117,
+          0.439,
+          0.441,
+          0.456
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "* 1 Tidak ada kelas TA dan absensi*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.122,
+              0.44,
+              0.438,
+              0.454
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.469,
+          0.836,
+          0.527
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Pada tahap Tugas Akhir, mahasiswa tidak mengikuti kelas TA dan tidak ada absensi perkuliahan. Kegiatan TA dilakukan melalui bimbingan langsung dengan Dosen Pembimbing TA."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.471,
+              0.833,
+              0.483
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.491,
+              0.798,
+              0.504
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.511,
+              0.259,
+              0.524
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph_title",
+        "bbox": [
+          0.12,
+          0.57,
+          0.544,
+          0.587
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "2 *Wajib melakukan bimbingan minimal 8 kali*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.123,
+              0.57,
+              0.541,
+              0.586
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.6,
+          0.863,
+          0.639
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Mahasiswa wajib melakukan bimbingan TA minimal 8 kali dengan Dosen Pembimbing. Seluruh aktivitas bimbingan wajib dicatat ke dalam ULT (logbook bimbingan)."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.119,
+              0.602,
+              0.861,
+              0.616
+            ]
+          },
+          {
+            "bbox": [
+              0.119,
+              0.622,
+              0.782,
+              0.637
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.68,
+          0.802,
+          0.716
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Dosen Pembimbing akan melakukan pengecekan terhadap logbook bimbingan tersebut."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.119,
+              0.681,
+              0.799,
+              0.695
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.702,
+              0.2,
+              0.715
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph_title",
+        "bbox": [
+          0.121,
+          0.761,
+          0.456,
+          0.778
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "3 *Menyelesaikan bimbingan di ULT*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.125,
+              0.762,
+              0.453,
+              0.776
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.792,
+          0.861,
+          0.87
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Setelah mahasiswa telah melakukan minimal 8 kali bimbingan dan seluruh logbook telah diperiksa oleh Dosen Pembimbing, Dosen dapat menekan tombol \"Selesai Bimbingan\" pada sistem ULT jika sudah cek bimbingan 8x agar mahasiswa bisa daftar sidang akhir."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.119,
+              0.792,
+              0.842,
+              0.807
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.813,
+              0.812,
+              0.826
+            ]
+          },
+          {
+            "bbox": [
+              0.119,
+              0.833,
+              0.857,
+              0.847
+            ]
+          },
+          {
+            "bbox": [
+              0.119,
+              0.853,
+              0.229,
+              0.866
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "paragraph_title",
+        "bbox": [
+          0.12,
+          0.088,
+          0.664,
+          0.106
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "4 *Persiapkan persyaratan sebelum mendaftar Sidang Akhir*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.124,
+              0.088,
+              0.661,
+              0.104
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.118,
+          0.869,
+          0.176
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Saat ini terdapat beberapa kewajiban yang perlu diperhatikan mahasiswa. Oleh karena itu, diharapkan sebelum melakukan pendaftaran Sidang Akhir, seluruh persyaratan berikut sudah diselesaikan:"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.118,
+              0.866,
+              0.133
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.14,
+              0.835,
+              0.153
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.16,
+              0.359,
+              0.173
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.116,
+          0.189,
+          0.869,
+          0.228
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "_Telah menyelesaikan Mikrokredensial/Coursera sesuai ketentuan yang berlaku._ (https://mercubuanaskilltrack.com/)"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.127,
+              0.191,
+              0.865,
+              0.206
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.212,
+              0.438,
+              0.226
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.116,
+          0.241,
+          0.852,
+          0.28
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "_Sudah memiliki keterangan telah mengikuti Ujikom dari LSP Universitas Mercu Buana._ (https://mercubuana.ac.id/biro-kampus/lembaga-sertifikasi-profesi)"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.136,
+              0.243,
+              0.85,
+              0.258
+            ]
+          },
+          {
+            "bbox": [
+              0.119,
+              0.263,
+              0.789,
+              0.278
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.292,
+          0.88,
+          0.33
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Untuk sertifikasi kompetensi BNSP, sesuai SK Rektor, pelaksanaan Ujikom wajib melalui LSP Universitas Mercu Buana (LSP UMB)."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.119,
+              0.293,
+              0.877,
+              0.307
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.314,
+              0.473,
+              0.326
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.375,
+          0.825,
+          0.433
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "*Mohon jangan menunggu sampai mendekati pendaftaran sidang untuk menyelesaikan kedua hal tersebut. Sebaiknya dipersiapkan dan diselesaikan dari sekarang agar tidak menghambat proses pendaftaran Sidang Akhir.*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.126,
+              0.376,
+              0.772,
+              0.389
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.396,
+              0.82,
+              0.408
+            ]
+          },
+          {
+            "bbox": [
+              0.119,
+              0.417,
+              0.704,
+              0.428
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph_title",
+        "bbox": [
+          0.12,
+          0.475,
+          0.392,
+          0.493
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "5 *Pendaftaran Sidang Akhir*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.124,
+              0.475,
+              0.388,
+              0.491
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.505,
+          0.869,
+          0.543
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Setelah proses bimbingan dinyatakan selesai dan seluruh persyaratan telah terpenuhi, mahasiswa dapat melanjutkan ke proses pendaftaran Sidang Akhir."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.119,
+              0.506,
+              0.865,
+              0.521
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.527,
+              0.7,
+              0.54
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.12,
+          0.587,
+          0.337,
+          0.604
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "*Perlu diperhatikan:*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.132,
+              0.589,
+              0.335,
+              0.604
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.617,
+          0.579,
+          0.634
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Sidang Akhir hanya dilaksanakan pada bulan Januari."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.119,
+              0.618,
+              0.576,
+              0.632
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph_title",
+        "bbox": [
+          0.12,
+          0.678,
+          0.316,
+          0.694
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "*Jadwal Yudisium*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.123,
+              0.678,
+              0.313,
+              0.693
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.116,
+          0.708,
+          0.591,
+          0.725
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Yudisium dilaksanakan setiap Jumat pada akhir bulan."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.709,
+              0.588,
+              0.723
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.768,
+          0.844,
+          0.805
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Apabila mahasiswa belum melakukan submit yudisium sampai Jumat terakhir pada bulan tersebut, maka proses yudisium akan masuk ke bulan berikutnya."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.119,
+              0.769,
+              0.842,
+              0.782
+            ]
+          },
+          {
+            "bbox": [
+              0.119,
+              0.789,
+              0.74,
+              0.803
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.847,
+          0.836,
+          0.906
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Oleh karena itu, mahasiswa disarankan untuk tidak mendaftar sidang terlalu dekat dengan akhir bulan, karena waktu untuk menyelesaikan revisi setelah sidang dan memenuhi persyaratan yudisium akan menjadi semakin sempit."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.122,
+              0.849,
+              0.831,
+              0.861
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.869,
+              0.817,
+              0.882
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.889,
+              0.673,
+              0.902
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "bbox": [
+          0.122,
+          0.117,
+          0.768,
+          0.135
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "7 *Bagi mahasiswa yang sudah Sempro tetapi belum menggunakan ULT*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.123,
+              0.118,
+              0.764,
+              0.133
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.115,
+          0.178,
+          0.854,
+          0.236
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Bagi mahasiswa yang sebelumnya sudah melaksanakan Seminar Proposal (Sempro), tetapi proses bimbingannya belum menggunakan ULT, silakan melapor ke TU untuk diproses bypass pada sistem ULT."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.179,
+              0.853,
+              0.193
+            ]
+          },
+          {
+            "bbox": [
+              0.119,
+              0.199,
+              0.838,
+              0.213
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.22,
+              0.412,
+              0.231
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "bbox": [
+          0.123,
+          0.278,
+          0.146,
+          0.294
+        ],
+        "content": null,
+        "image_base64": "data:image/jpeg;base64,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"
+      },
+      {
+        "type": "paragraph_title",
+        "bbox": [
+          0.122,
+          0.278,
+          0.58,
+          0.296
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "一 *Rangkaian yang perlu diperhatikan mahasiswa:*"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.125,
+              0.28,
+              0.578,
+              0.294
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.117,
+          0.309,
+          0.845,
+          0.348
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Plotting Dospem → Bimbingan minimal 8x → Logbook ULT diperiksa Dosen → \"Selesai Bimbingan\" → Daftar Sidang → Sidang Akhir → Revisi → Submit Yudisium"
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.31,
+              0.844,
+              0.325
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.331,
+              0.726,
+              0.343
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.116,
+          0.388,
+          0.848,
+          0.447
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Mohon seluruh mahasiswa memperhatikan tahapan tersebut dan mempersiapkan persyaratan dari jauh-jauh hari agar proses Tugas Akhir → Sidang → Revisi → Yudisium dapat berjalan dengan lancar."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.39,
+              0.833,
+              0.403
+            ]
+          },
+          {
+            "bbox": [
+              0.119,
+              0.41,
+              0.845,
+              0.424
+            ]
+          },
+          {
+            "bbox": [
+              0.12,
+              0.431,
+              0.377,
+              0.443
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bbox": [
+          0.117,
+          0.49,
+          0.533,
+          0.507
+        ],
+        "content": [
+          {
+            "type": "text",
+            "content": "Terima kasih atas perhatian dan kerja samanya."
+          }
+        ],
+        "lines": [
+          {
+            "bbox": [
+              0.12,
+              0.491,
+              0.53,
+              0.505
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "bbox": [
+          0.536,
+          0.489,
+          0.561,
+          0.507
+        ],
+        "content": null,
+        "image_base64": "data:image/jpeg;base64,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"
+      }
+    ]
+  ],
+  "page_index_map": []
+}

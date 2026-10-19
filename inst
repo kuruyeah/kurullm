@@ -1,3 +1,13 @@
-pip install sentence-transformers supabase groq langdetect python-dotenv pypdf
+pip install -r requirements.txt
+
+# Kalau mau pakai NVIDIA CUDA 12.1, install PyTorch CUDA build:
 pip uninstall torch -y
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Jalankan API FastAPI:
+uvicorn main:app --reload
+
+# Jalankan bot Telegram:
+# 1. Buat bot lewat @BotFather dan ambil tokennya.
+# 2. Tambahkan TELEGRAM_BOT_TOKEN=token_bot_kamu ke .env
+python telegram_bot.py
