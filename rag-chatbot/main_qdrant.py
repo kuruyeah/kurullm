@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
-from rag_qdrant import run_rag
+from rag_qdrantpt2 import run_rag
 
 
 # ============================================================
