@@ -12,3 +12,7 @@ torchvision
 torchaudio
 qdrant-client
 transformers
+redis
+fastembed
+numpy
+locust
